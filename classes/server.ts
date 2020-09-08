@@ -11,16 +11,10 @@ export default class Server{
 
     private httpServer: http.Server;
 
-
      constructor() {
         this.app = express();
         this.port = SERVER_PORT;
-
-
         this.httpServer = new http.Server(this.app);
-
-        
-       
     }
 
 

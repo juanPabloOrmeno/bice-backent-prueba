@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-
+import { indeconLast } from "./../classes/valores.service"
 
 const productoRouter = Router();
 
@@ -10,9 +10,14 @@ productoRouter.post('/', async (req: any, res: Response) => {
     try {
 
 
+        const tipo = body.tipo || "dolar"
+        const fecha = body.fecha 
+
+
+        let datos = await indeconLast(tipo,fecha)
         res.status(200).send({
             status: "true",
-            respons: ''
+            datos: datos.data
         });
 
     } catch (e) {

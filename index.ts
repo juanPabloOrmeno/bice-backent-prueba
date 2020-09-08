@@ -1,6 +1,6 @@
 import Server from "./classes/server";
 import bodyParser from 'body-parser';
-import { connectMongo } from "./classes/mongo";
+
 
 
 import cors from 'cors';
@@ -20,12 +20,6 @@ server.app.use( bodyParser.json());
 //rutas
 server.app.use( '/valores', productoRouter);
 
-
-
-
-
-//conectar bd
-connectMongo();
 
 
 //levanta espress

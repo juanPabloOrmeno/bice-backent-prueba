@@ -8,27 +8,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = require("express");
-const valores_service_1 = require("./../classes/valores.service");
-const productoRouter = express_1.Router();
-//ver productos
-productoRouter.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const body = req.body;
-    try {
-        const tipo = body.tipo || "dolar";
-        const fecha = body.fecha;
-        let datos = yield valores_service_1.indeconLast(tipo, fecha);
-        res.status(200).send({
-            status: "true",
-            datos: datos.data
-        });
-    }
-    catch (e) {
-        res.status(500).json({
-            status: false,
-            error: e
-        });
-    }
-}));
-exports.default = productoRouter;
+const axios_1 = __importDefault(require("axios"));
+const environment_1 = require("../global/environment");
+let indeconLast = (tipo, fecha) => __awaiter(void 0, void 0, void 0, function* () {
+    let datos = yield axios_1.default.get(`${environment_1.URL_LAST}/${tipo}/${fecha}`);
+    return datos;
+});
+exports.indeconLast = indeconLast;
