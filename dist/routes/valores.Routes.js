@@ -32,6 +32,24 @@ productoRouter.post('/valores', (req, res) => __awaiter(void 0, void 0, void 0, 
     }
 }));
 //ver productos
+productoRouter.post('/valoresTipo', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const body = req.body;
+    try {
+        const tipo = body.tipo || "dolar";
+        let datos = yield valores_service_1.valoresTipo(tipo);
+        res.status(200).send({
+            status: "true",
+            datos: datos
+        });
+    }
+    catch (e) {
+        res.status(500).json({
+            status: false,
+            error: e
+        });
+    }
+}));
+//ver productos
 productoRouter.get('/tipos', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const body = req.body;
     try {

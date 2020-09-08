@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import { indeconTipo , tipos } from "./../classes/valores.service"
+import { indeconTipo , tipos, valoresTipo } from "./../classes/valores.service"
 
 const productoRouter = Router();
 
@@ -27,6 +27,34 @@ productoRouter.post('/valores', async (req: any, res: Response) => {
         })
     }
 });
+
+
+
+//ver productos
+productoRouter.post('/valoresTipo', async (req: any, res: Response) => {
+    const body = req.body;
+
+    try {
+
+
+        const tipo = body.tipo || "dolar"
+       
+
+
+        let datos = await valoresTipo(tipo)
+        res.status(200).send({
+            status: "true",
+            datos: datos
+        });
+
+    } catch (e) {
+        res.status(500).json({
+            status: false,
+            error: e
+        })
+    }
+});
+
 
 
 
