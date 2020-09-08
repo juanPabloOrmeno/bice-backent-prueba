@@ -13,7 +13,7 @@ const express_1 = require("express");
 const valores_service_1 = require("./../classes/valores.service");
 const productoRouter = express_1.Router();
 //ver productos
-productoRouter.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+productoRouter.post('/valores', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const body = req.body;
     try {
         const tipo = body.tipo || "dolar";
@@ -32,7 +32,7 @@ productoRouter.post('/', (req, res) => __awaiter(void 0, void 0, void 0, functio
     }
 }));
 //ver productos
-productoRouter.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+productoRouter.get('/tipos', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const body = req.body;
     try {
         let datos = yield valores_service_1.tipos();

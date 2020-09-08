@@ -18,7 +18,7 @@ server.app.use( bodyParser.json());
 
 
 //rutas
-server.app.use( '/valores', productoRouter);
+server.app.use( '/', productoRouter);
 
 
 

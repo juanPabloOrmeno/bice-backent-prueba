@@ -14,6 +14,6 @@ server.app.use(cors_1.default({ origin: true, credentials: true }));
 server.app.use(body_parser_1.default.urlencoded({ extended: true }));
 server.app.use(body_parser_1.default.json());
 //rutas
-server.app.use('/valores', valores_Routes_1.default);
+server.app.use('/', valores_Routes_1.default);
 //levanta espress
 server.start();

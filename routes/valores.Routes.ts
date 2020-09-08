@@ -4,7 +4,7 @@ import { indeconTipo , tipos } from "./../classes/valores.service"
 const productoRouter = Router();
 
 //ver productos
-productoRouter.post('/', async (req: any, res: Response) => {
+productoRouter.post('/valores', async (req: any, res: Response) => {
     const body = req.body;
 
     try {
@@ -31,7 +31,7 @@ productoRouter.post('/', async (req: any, res: Response) => {
 
 
 //ver productos
-productoRouter.get('/', async (req: any, res: Response) => {
+productoRouter.get('/tipos', async (req: any, res: Response) => {
     const body = req.body;
 
     try {
