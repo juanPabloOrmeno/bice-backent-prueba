@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import { indeconLast } from "./../classes/valores.service"
+import { indeconTipo , tipos } from "./../classes/valores.service"
 
 const productoRouter = Router();
 
@@ -14,10 +14,32 @@ productoRouter.post('/', async (req: any, res: Response) => {
         const fecha = body.fecha 
 
 
-        let datos = await indeconLast(tipo,fecha)
+        let datos = await indeconTipo(tipo,fecha)
         res.status(200).send({
             status: "true",
             datos: datos.data
+        });
+
+    } catch (e) {
+        res.status(500).json({
+            status: false,
+            error: e
+        })
+    }
+});
+
+
+
+//ver productos
+productoRouter.get('/', async (req: any, res: Response) => {
+    const body = req.body;
+
+    try {
+
+        let datos = await tipos()
+        res.status(200).send({
+            status: "true",
+            datos: datos
         });
 
     } catch (e) {

@@ -18,10 +18,27 @@ productoRouter.post('/', (req, res) => __awaiter(void 0, void 0, void 0, functio
     try {
         const tipo = body.tipo || "dolar";
         const fecha = body.fecha;
-        let datos = yield valores_service_1.indeconLast(tipo, fecha);
+        let datos = yield valores_service_1.indeconTipo(tipo, fecha);
         res.status(200).send({
             status: "true",
             datos: datos.data
+        });
+    }
+    catch (e) {
+        res.status(500).json({
+            status: false,
+            error: e
+        });
+    }
+}));
+//ver productos
+productoRouter.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const body = req.body;
+    try {
+        let datos = yield valores_service_1.tipos();
+        res.status(200).send({
+            status: "true",
+            datos: datos
         });
     }
     catch (e) {
