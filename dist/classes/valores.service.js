@@ -12,19 +12,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.tipos = exports.indeconTipo = void 0;
 const axios_1 = __importDefault(require("axios"));
 const environment_1 = require("../global/environment");
-let indeconTipo = (tipo, fecha) => __awaiter(void 0, void 0, void 0, function* () {
-    let datos = yield axios_1.default.get(`${environment_1.URL_LAST}/${tipo}/${fecha}`);
-    return datos;
-});
+let indeconTipo = (tipo, fecha) => __awaiter(void 0, void 0, void 0, function* () { return yield axios_1.default.get(`${environment_1.URL_LAST}/${tipo}/${fecha}`); });
 exports.indeconTipo = indeconTipo;
-let tipos = () => __awaiter(void 0, void 0, void 0, function* () {
-    let datos = yield axios_1.default.get(environment_1.URL_TIPOS);
-    let objectArray = Object.entries(datos.data);
-    return objectArray.map(dato => {
-        console.log(dato);
-        return dato[0];
-    });
-});
+let tipos = () => __awaiter(void 0, void 0, void 0, function* () { return (yield axios_1.default.get(environment_1.URL_TIPOS)).data; });
 exports.tipos = tipos;

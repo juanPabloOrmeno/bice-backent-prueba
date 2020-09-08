@@ -36,6 +36,7 @@ productoRouter.get('/tipos', (req, res) => __awaiter(void 0, void 0, void 0, fun
     const body = req.body;
     try {
         let datos = yield valores_service_1.tipos();
+        console.log(datos);
         res.status(200).send({
             status: "true",
             datos: datos

@@ -37,6 +37,9 @@ productoRouter.get('/tipos', async (req: any, res: Response) => {
     try {
 
         let datos = await tipos()
+
+
+        console.log(datos)
         res.status(200).send({
             status: "true",
             datos: datos
