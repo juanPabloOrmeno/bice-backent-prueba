@@ -17,7 +17,7 @@
 
 
 ## url servicio en Heroku
-https://bice-backent-prueba.herokuapp.com/swagger/
+https://bice-backent-prueba.herokuapp.com
 
 
 ## url swagger del servicio en Heroku
