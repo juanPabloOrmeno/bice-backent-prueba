@@ -78,10 +78,51 @@
                         "type": "boolean"
                     },
                     "datos": {
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "example": "cobre"
+                        "type": "object",
+                        "properties": {
+                            "key": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "unit": {
+                                "type": "string"
+                            },
+                            "date": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                }
+            },
+            "ResponseValoresTipo": {
+                "type": "object",
+                "required": [
+                    "ok"
+                ],
+                "properties": {
+                    "status": {
+                        "type": "boolean"
+                    },
+                    "datos": {
+                        "type": "object",
+                        "properties": {
+                            "key": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "unit": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "object"
+                            }
                         }
                     }
                 }
@@ -131,6 +172,51 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ResponseProducto"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "NOK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/valoresTipo/": {
+            "post": {
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "tipo": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Valores"
+                ],
+                "summary": "ver productos",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseValoresTipo"
                                 }
                             }
                         }
