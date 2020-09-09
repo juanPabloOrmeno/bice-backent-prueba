@@ -9,11 +9,20 @@
 ## instalar los paquetes de package.json 
 - npm install
 
+## compilar archivos de forma local
+- tsc
+
 
 ## correr docker con docker-compose (Puerto expuesto 5000)
 - docker-compose build
 - docker-compose up -d
 
+
+## url servicio local
+http://localhost:5000
+
+## url swagger del servicio local
+http://localhost:5000/swagger/
 
 
 ## url servicio en Heroku
