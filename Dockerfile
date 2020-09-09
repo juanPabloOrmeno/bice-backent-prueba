@@ -7,7 +7,7 @@ COPY package*.json ./
 RUN npm install --only=production
 
 # Bundle app source
-COPY ./dist .
+COPY ./dist ./dist
 
 EXPOSE 5000
 CMD npm run prod
